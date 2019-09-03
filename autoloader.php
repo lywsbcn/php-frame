@@ -23,6 +23,7 @@ function __autoload($name){
     if(file_exists($file)){
         include_once $file;
     }else{
+        $message = !_SC('debug')  ? "system error":"include faild: $file not exsits";
         throw new Exception("include faild: $file not exsits");
     }
 }
@@ -30,5 +31,6 @@ function __autoload($name){
 set_error_handler('catch_error');
 function catch_error($type, $message, $file, $line)
 {
+    !_SC('debug') && ($message = "system error");
     throw new \Exception($message);
 }

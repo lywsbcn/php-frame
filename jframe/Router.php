@@ -62,9 +62,11 @@ class Router
             return $controller->$action();
 
         } catch (\Error $e) {
-            return array("flag" => 0, "msg" => $e->getMessage(),"action"=>0 );
+            $message = !_SC('debug') ? "system error" : $e->getMessage();
+            return array("flag" => 0, "msg" => $message,"action"=>0 );
         } catch( \Exception $e){
-            return array("flag" => 0, "msg" => $e->getMessage(),"action"=>0 );
+            $message = !_SC('debug') ? "system error" : $e->getMessage();
+            return array("flag" => 0, "msg" => $message,"action"=>0 );
         } 
     }
 }

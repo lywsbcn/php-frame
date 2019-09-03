@@ -37,5 +37,7 @@ return array(
     "log_path"               => "/log/",
 
     //自定义方法文件路径
-    'custom_function'        => '/app/common/Function.php'
+    'custom_function'        => '/app/common/Function.php',
+
+    'debug'                  =>  false
 );
